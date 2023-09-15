@@ -79,7 +79,7 @@ db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
 
   app.delete("/api/company/:id", (req, res) => {
     db.deleteCompanyByName(req.params.id).then((company) => {
-      res.json(company); 
+      res.status(204);
     }).catch((error) => {
       console.error('Error:', error);
       res.status(500).json({ error: 'Internal server error' }); 
