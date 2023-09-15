@@ -23,11 +23,6 @@ app.use(express.json());
 
 
 
-app.get("/", (req,res) => {
-    res.send({message:"API Listening"})
-    //res.sendFile(path.join(__dirname, "/index.html"));
-  });
-
 db.initialize(process.env.MONGODB_CONN_STRING).then(()=>{
   app.listen(HTTP_PORT, ()=>{
       console.log(`server listening on: ${HTTP_PORT}`);
